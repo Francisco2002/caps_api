@@ -1,6 +1,7 @@
 import express from "express";
 import SessionController from "./controllers/sessionController";
 import RecoverPasswordController from "./controllers/recoverPasswordController";
+import FirstAccessController from "./controllers/firstAccessController";
 
 const app = express();
 
@@ -16,6 +17,6 @@ app.post("/email-recover-password", RecoverPasswordController.sendRecoverEmail);
 app.post("/recover-password", RecoverPasswordController.recoverPassword);
 
 // primeiro acesso
-app.post("/first-access");
+app.post("/first-access", FirstAccessController.firtsAccess);
 
 export default app;

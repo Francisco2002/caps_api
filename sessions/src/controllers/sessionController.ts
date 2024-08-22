@@ -25,9 +25,11 @@ class SessionController {
                 where: [{ email: data }, { username: data }]
             })
 
-            if(!user) {
+            if(!user)
                 return res.status(404).json({ message: "User not found!" });
-            }
+
+            if(!user.enabled)
+                return res.status(403).json({ message: "User not enabled!" });
 
             const { password: userPassword, ...rest } = user;
 
