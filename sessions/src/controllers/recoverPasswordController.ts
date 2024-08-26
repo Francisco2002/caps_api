@@ -33,6 +33,7 @@ class RecoverPasswordController {
 
             transporter.sendMail(mailOptions, function(error, info) {
                 if (error) {
+                    console.log(error);
                   return res.status(500).json({ message: error });
                 } else {
                     return res.status(200).json({ message: 'Email sent: ' + info.response });
